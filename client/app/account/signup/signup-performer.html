@@ -1,0 +1,194 @@
+<!-- navbar -->
+<navbar></navbar>
+<!-- content -->
+<div class="login-page">
+  <div class="box-login">
+      <div class="form-login">
+        <form class="form" name="form" method="post" novalidate>
+          <h3 class="text-center">REGISTER</h3>
+          <p style="text-align: center">This form allows you to register as an escort.<br />If you want to become a fan, please <a ui-sref="signupMember">register here instead</a>.</p>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" class="form-control input-lg" ng-model="user.email" required>
+
+            <p class="help-block" ng-show="form.email.$error.required && submitted">
+               Please enter your email.
+            </p>
+            <p class="help-block" ng-show="form.email.$error.email && submitted">
+               Please enter a valid email.
+            </p>
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" name="password" class="form-control input-lg" ng-model="user.password" required>
+
+            <p class="help-block" ng-show="form.password.$error.required && submitted">
+               Please enter your password.
+            </p>
+          </div>
+          <div class="form-group">
+            <label>Display Name</label>
+            <input type="text" name="name" class="form-control input-lg" ng-model="user.name" required>
+            <p class="help-block" ng-show="form.name.$error.required && submitted">
+               Please enter your display name.
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label>Profile Banner</label>
+            <p><img fallback-src ng-src="{{model.welcomePhoto}}" style="max-height: 200px"
+            ng-if="!cropper.croppedImage" />
+            <img ng-src="{{cropper.croppedImage}}" ng-if="cropper.croppedImage"
+              style="max-height: 200px; padding:15px" /></p>
+            <div class="clearfix"></div>
+            <input type="file" img-cropper-fileread image="cropper.sourceImage" accept="image/*" ngf-max-size="100MB"
+              name="file" />
+            <div ng-if="cropper.sourceImage !== null">
+              <canvas width="600" height="300" id="canvas" image-cropper image="cropper.sourceImage"
+                cropped-image="cropper.croppedImage" crop-width="1680" crop-height="550" keep-aspect="true"
+                touch-radius="30" crop-area-bounds="bounds"></canvas>
+            </div>
+            <div class="progress" ng-show="welcomePhoto.progress">
+              <div class="progress-bar" role="progressbar" ng-style="{width: welcomePhoto.progress + '%'}">
+                <span class="sr-only">{{welcomeVideo.progress}}0% Complete</span>
+              </div>
+            </div>
+            <p class="help-block" ng-show="(!cropper.sourceImage || !cropper.croppedImage) && submitted">
+              Please select and crop your profile banner.
+           </p>
+          </div>
+
+          <div class="form-group">
+            <label>Profile Picture</label>
+            <input type="file" ngf-select ng-model="welcomePhoto" />
+
+            <p class="help-block" ng-show="!welcomePhoto && submitted">
+               Please select a profile picture.
+            </p>
+          </div>
+
+          
+
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" name="firstName" class="form-control input-lg" ng-model="user.firstName" required>
+            <p class="help-block" ng-show="form.firstName.$error.required && submitted">
+               Please enter your first name.
+            </p>
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" name="lastName" class="form-control input-lg" ng-model="user.lastName" required>
+            <p class="help-block" ng-show="form.lastName.$error.required && submitted">
+               Please enter your last name.
+            </p>
+          </div>
+          <div class="form-group">
+            <label>Phone <small>(please use international format including your country code)</small></label>
+            <input type="text" name="phone" class="form-control input-lg" ng-model="user.phone" required>
+            <p class="help-block" ng-show="form.phone.$error.required && submitted">
+               Please enter your phone number.
+            </p>
+          </div>
+          <div class="form-group">
+            <label>Subscription Prices</label>
+            <div class="row"><!--
+              <div class="col-xs-4">
+                <input type="text" name="subscriptionDailyPrice" class="form-control input-lg" ng-model="user.subscriptionDailyPrice" required placeholder="per day">
+                <p class="help-block" ng-show="form.subscriptionDailyPrice.$error.required && submitted">
+                   Price missing.
+                </p>
+              </div>
+              <div class="col-xs-4">
+                <input type="text" name="subscriptionWeeklyPrice" class="form-control input-lg" ng-model="user.subscriptionWeeklyPrice" required placeholder="per week">
+                <p class="help-block" ng-show="form.subscriptionWeeklyPrice.$error.required && submitted">
+                  Price missing.
+                </p>
+              </div>-->
+              <div class="col-xs-12">
+                <input type="text" name="subscriptionMonthlyPrice" class="form-control input-lg" ng-model="user.subscriptionMonthlyPrice" required placeholder="per month">
+                <p class="help-block" ng-show="form.subscriptionMonthlyPrice.$error.required && submitted">
+                  Price missing.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Skrill email</label>
+            <input type="text" name="skrill" class="form-control input-lg" ng-model="user.skrill" required>
+            <p class="help-block" ng-show="form.name.$error.required && submitted">
+              A Skrill email is required
+            </p>
+            <p class="help-block" ng-show="(form.skrill.$error.email || validateEmail) && submitted">
+              Doesn't look like a valid Skrill email.
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label>Bio</label>
+            <textarea name="description" class="form-control input-lg" ng-model="user.description" required></textarea>
+            <p class="help-block" ng-show="form.description.$error.required && submitted">
+               Please talk a bit about you.
+            </p>
+          </div>
+
+
+          <div class="form-group">
+            <label>Tags (comma-separated list of tags)</label>
+            <textarea name="tags" class="form-control input-lg" ng-model="user.tags" required></textarea>
+            <p class="help-block" ng-show="form.tags.$error.required && submitted">
+               Please add some tags. Example: tag1, tag2
+            </p>
+          </div>
+
+
+          <div class="form-group">
+            <label>Sex</label>
+            <select class="form-control" ng-model="user.sex">
+              <option value="female">Female</option>
+              <option value="male">Male</option>
+              <option value="TS">TS</option>
+              <option value="TV">TV</option>
+              <option value="Duo">Duo</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Photo ID verification <small>(Verificação foto ID, Verificación de foto ID, Vérification de photo ID, Foto-ID-Überprüfung )</small></label>
+            <input type="file" ngf-select ng-model="file" required />
+
+            <p class="help-block" ng-show="!file && submitted">
+               Please select document to verify your account.
+            </p>
+          </div>
+          <div class="form-group">
+            <label>Verify it's you <small>(picture of you holding your ID)</small></label>
+            <input type="file" ngf-select ng-model="file2" required />
+
+            <p class="help-block" ng-show="!file2 && submitted">
+               Please select document to verify it's you.
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label>Notes for Team (optional)</label>
+            <textarea name="notesForTeam" class="form-control input-lg" ng-model="user.notesForTeam"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label><input type="checkbox" name="tos" ng-model="tos" required> I agree with the Terms and Conditions</label>
+            <p class="help-block" ng-show="!tos && submitted">
+               You must accept our Terms and Conditions.
+            </p>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-warning btn-lg btn-block cta-register" type="submit" ng-click="submit(form)">CREATE A PROVIDER ACCOUNT</button>
+          </div>
+          <div class="text-center">
+              Have an account already?  <a ui-sref="login">Login</a>
+          </div>
+        </form>
+      </div>
+  </div>
+</div>
+<footer></footer>

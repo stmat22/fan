@@ -1,0 +1,15 @@
+#profile {
+  //my profile full width banner -> this resets the container-fluid to make it full width
+  .container-fluid.banner{
+    padding: 0;
+    margin-bottom: 42px;
+    img {
+      width: 100%;
+      width: -moz-available;          /* WebKit-based browsers will ignore this. */
+      width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+      width: fill-available;
+      object-fit: cover;
+      max-height: 430px;
+    }
+  }
+}

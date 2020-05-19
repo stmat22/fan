@@ -1,0 +1,9 @@
+#feed {
+  margin-top:50px;
+  .escort-feed-container {
+    @include flex-center;
+    .escort-post-item  {
+      flex: 1;
+    }
+  }
+}

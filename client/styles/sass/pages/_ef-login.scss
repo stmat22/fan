@@ -1,0 +1,60 @@
+.cta-register {
+  @include cta($brand-secondary);
+  &:hover {
+    background-color: $brand-primary;
+    color: white;
+  }
+}
+.cta-login {
+  @extend .cta-register;
+}
+
+.login-page.ng-scope {
+  h3 {
+    color: $brand-secondary;
+    font-family: $brand-font;
+  }
+  .benefit-listing .col-sm-6 {
+    background-color: unset;
+    label,a, .text-center {
+      color: $brand-primary;
+    }
+  }
+}
+
+.login-page {
+  background: unset;
+  padding: 100px 0 100px 0;
+  .login-row, .box-login {
+    width: 100%;
+    @media only screen and (min-width: $screen-tablet) {
+      padding: 0 30px;
+    }
+  }
+  .box-login {
+    @include flex-center;
+  }
+  .login-row {
+
+  }
+  .row.login-row.benefit-listing {
+    .col-sm-6:last-child {
+      background-color: unset;
+      h3 span {
+        color: $brand-secondary;
+      }
+    }
+    @media only screen and (max-width: ($screen-desktop - 1)) {
+      margin: unset;
+    }
+
+  }
+}
+//forgot password
+.box-signup {
+  background-color: transparent;
+  .form-login {
+    background: transparent;
+  }
+}
+

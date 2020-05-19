@@ -1,0 +1,115 @@
+#home-banner {
+  padding-top: 40px;
+  background-repeat: no-repeat;
+
+  //mobile background oval image (to decorate the photo) displayed only for mobile
+  @include media-queries-max-width($screen-tablet - 1) {
+    background-image: url(/assets/images/oval-background.png);
+    background-size: contain;
+  }
+
+  //adjust the main home-banner image at different screensizes
+  @include media-queries-min-width($screen-tablet) {
+    background-image: url(/assets/images/escort-fans-home-banner.png);
+    padding-top: 75px;
+    height: 400px;
+    background-size: 48%;
+    background-position: right -20px top 0px;
+  }
+  @include media-queries-min-width($screen-laptop) {
+    background-image: url(/assets/images/escort-fans-home-banner.png);
+    padding-top: 75px;
+    height: 400px;
+    background-size: 50%;
+    background-position: right 0px top 0px;
+  }
+  @include media-queries-min-width($screen-desktop) {
+    padding-top: 141px;
+    height: 566px;
+    background-size: 50%;
+    background-position: right 0px top -34px;
+  }
+  @include media-queries-min-max-width(1100px,1200px) {
+    background-position: right 0px top -34px;
+    background-size: 50%;
+  }
+  @include media-queries-min-width(1440px) {
+    padding-top: 116px;
+    height: 566px;
+    background-position: right 120px top -134px;
+    background-size: 50%;
+  }
+  @include media-queries-min-width(2000px) {
+    //background-position: right 120px top -100px;
+    background-position: right 120px top -156px;
+    background-size: 50%;
+  }
+  @include media-queries-min-width(2250px) {
+    //background-position: right 120px top -100px;
+    background-position: right 120px top -200px;
+    background-size: 50%;
+  }
+  @include media-queries-min-width(2500px) {
+    background-position: right 32% top -95px;
+    background-size: 50%;
+    background-size: contain;
+  }
+  @include media-queries-min-width(3000px) {
+    background-size: contain;
+    background-position: right 39% top -100px;
+  }
+
+  background-color: white;
+  div.container {
+    h1 {
+      @include h1;
+      margin-bottom: 30px;
+      margin-top: 0;
+      @include media-queries-max-width(($screen-tablet - 1)) {
+        margin-bottom: 60px;
+      }
+    }
+
+    button.btn.cta-primary-inverse, .btn.cta-secondary-inverse {
+      margin-right: 12px;
+    }
+    .subtitle {
+      @include subtitle;
+      text-transform: uppercase;
+      margin: 0 0 5px 0;
+    }
+    p {
+      margin: 0 0 30px 0;
+      @include media-queries-max-width(($screen-tablet - 1)) {
+        margin: 30px 0 30px 0;
+      }
+
+      font-size: $font-size-p - 1px;
+      font-family: $complementary-font;
+      line-height: $line-height;
+      color: $gray-long-text;
+      max-width: 451px;
+    }
+    .cta {
+      margin-top: 65px;
+
+      @media only screen and (max-width: ($screen-desktop - 1)) {
+        margin-top: 0;
+        text-align: left;
+        button.btn {
+          margin-right: 30px !important;
+        }
+        .btn.cta-primary-inverse, .btn.cta-secondary-inverse {
+          margin: 0 0 10px 0;
+          //width: 75%;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+

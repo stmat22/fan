@@ -1,0 +1,45 @@
+//
+// Variables
+// --------------------------------------------------
+
+
+// Colors
+$brand-primary:         #bb2171; //purple
+$brand-secondary:       #101141; //blue
+$brand-primary-faded:   rgba($brand-primary, .1);
+$brand-secondary-faded: rgba($brand-secondary, .1);
+$brand-secondary-tint:  #c4c4f0;
+$gray-long-text:        #1D1D1D;
+
+$soft-gray-long-text:     #4E4E4E;
+$light-grey:             #F8F8FA;
+$background-color:      white;
+
+
+// Font Variables
+$brand-font:  'Nunito', sans-serif;
+$complementary-font: "Open Sans";
+
+// Font size
+$font-size-small:         13px;
+$font-size-p:             16px;
+$font-size-h1:            25px;
+$font-size-h3:            20px;
+$font-size-footer:        15px;
+$font-size-copyright:     10px;
+
+$line-height:            1.4em;
+$line-height-normal:      24px;
+$font-weight-bold:           600;
+$font-weight-normal:         500;
+$letter-spacing:              0;
+
+// media queries / screen sizes
+$screen-mobile:                  320px;
+$screen-tablet:                  768px;
+$screen-laptop:                 1024px;
+$screen-desktop:                1200px;
+
+
+
+

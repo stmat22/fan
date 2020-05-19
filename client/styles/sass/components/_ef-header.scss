@@ -1,0 +1,263 @@
+//
+// header
+// --------------------------------------------------
+
+//navbar (menu) buttons
+.nav-primary {
+  @include cta($brand-primary);
+}
+
+.nav-secondary {
+  @include cta($brand-secondary);
+}
+
+.nav-primary-inverse {
+  @include cta-inverse($brand-primary);
+  &.active {
+    @include cta($brand-primary);
+    svg path {
+      fill: white;
+    }
+  }
+}
+
+.nav-secondary-inverse {
+  @include cta-inverse($brand-secondary);
+  &.active {
+    @include cta($brand-secondary);
+    svg path {
+      fill: white;
+    }
+  }
+}
+
+.navbar-toggle {
+  padding: 10px 7px;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 2px solid $brand-secondary;
+  border-color: $brand-secondary !important;
+  &:hover {
+    background-color: $background-color !important;
+  }
+  &:focus {
+    background-color: $background-color !important;
+  }
+}
+
+.navbar .icon-bar {
+  background-color: $brand-secondary !important;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: #ddd;
+}
+
+// buttons
+.cta-primary {
+  @include cta($brand-primary);
+}
+
+.cta-primary-inverse {
+  @include cta-inverse($brand-primary);
+}
+
+.cta-secondary {
+  @include cta($brand-secondary);
+}
+
+.cta-secondary-inverse {
+  @include cta-inverse($brand-secondary);
+}
+
+.form-primary-inverse {
+  @include form-inverse($brand-primary);
+  cursor: pointer;
+}
+
+.form-secondary-inverse {
+  @include form-inverse($brand-secondary);
+  cursor: pointer;
+}
+
+.menu-btn {
+  border: none;
+  box-shadow: none;
+  color: $brand-primary;
+}
+
+//.btn.cta-primary > i.fas,
+//.btn.cta-secondary > i.fas,
+//.btn.cta-primary-inverse > i.fas,
+//.btn.cta-secondary-inverse > i.fas {
+//  margin-right: 10px;
+//}
+
+//icons
+//.icon {
+//  @include icon;
+//}
+
+.nav-icon-settings {
+  border-radius: 50%;
+  background-color: $brand-secondary;
+  line-height: 0;
+  padding: 13px;
+  i {
+    font-size: 19px;
+    color: white;
+  }
+}
+
+//.nav-icon-feed {
+//  i {
+//    font-size: 19px;
+//    padding-right: 10px;
+//  }
+//}
+
+//i.fas.fa-power-off {
+//@media only screen and (min-width: $screen-tablet ) {
+//font-size: 30px;
+//color: $brand-secondary;
+//}
+//}
+
+//logo
+
+.logo {
+  //width: 246px;
+  //margin-left: 10px;
+  //margin-top: 5px;
+
+  //@media (max-width: 767px) and (min-width: 320px) {
+  //  width: 80%;
+  //}
+  max-width: 260px;
+  //@include media-queries-min-max-width($screen-mobile, $screen-tablet) {
+  //  width: auto;
+  //}
+
+  img {
+    object-fit: unset;
+    height: 52px;
+    width: 291px;
+
+    @include media-queries-min-max-width($screen-mobile, $screen-tablet - 1) {
+      width: 80%;
+      margin-left: 10px;
+    }
+    //
+    @media only screen and (min-width: $screen-tablet) {
+      margin-top: 20px;
+      //margin-left: 30px;
+    }
+    @media only screen and (min-width: ($screen-desktop + 1)) {
+      margin-top: 30px;
+      //margin-left: 0;
+    }
+  }
+}
+
+// menu
+.header {
+  background-color: $background-color;
+  height: 82px !important;
+  @media only screen and (min-width: ($screen-desktop)) {
+    height: 116px !important;
+  }
+}
+
+.user-login, .menu-login {
+  @media only screen and (max-width: ($screen-tablet - 1)) {
+    width: 100%;
+  }
+  ul.model-drop-menu > li, ul.normal-menu > li {
+    display: block;
+    padding: 10px 0;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba($brand-primary, .1);
+    border-radius: inherit;
+    &:last-child {
+      border: unset;
+    }
+    height: 48px;
+    a {
+      color: $brand-secondary;
+      i.fa {
+        font-size: 18px;
+        padding-right: 4px;
+      }
+    }
+  }
+  li {
+    font-size: $font-size-small;
+    //margin: 12px 20px 10px 0;
+    margin: 12px 0px 10px 12px;
+    @include media-queries-min-max-width($screen-tablet, $screen-laptop) {
+      margin: 10px 10px 10px 0;
+    }
+    @media only screen and (max-width: ($screen-tablet - 1)) {
+      color: $brand-primary;
+      display: block;
+      font-weight: normal;
+      text-align: right;
+      margin-top: 4px;
+    }
+  }
+  li.btn.cta-primary,
+  li.btn.cta-secondary,
+  li.btn.cta-primary-inverse {
+    @media only screen and (max-width: ($screen-tablet - 1)) {
+      background-color: transparent;
+      color: $brand-secondary;
+      //border: unset;
+    }
+  }
+}
+
+.btn.active {
+  box-shadow: none;
+}
+
+nav.navbar {
+  padding: 10px;
+  @media only screen and (min-width: ($screen-desktop)) {
+    height: 116px;
+    div#navbar {
+      //margin-right: 80px;
+      padding-top: 15px;
+    }
+  }
+}
+
+nav.navbar-default {
+  background-color: $background-color;
+  background-image: none;
+}
+
+//fixes alignment issue on dashboard mobile menu
+div#navbar {
+  @media only screen and (max-width: ($screen-tablet - 1)) {
+    margin: 0;
+    margin: auto;
+    padding: 0 18px;
+    width: 100%;
+
+  }
+}
+
+.menu-login {
+  ul.nav.navbar-nav {
+    @media only screen and (max-width: ($screen-tablet - 1)) {
+      margin: 0 !important;
+    }
+  }
+}
+
+
+

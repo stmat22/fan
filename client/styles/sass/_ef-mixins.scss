@@ -1,0 +1,221 @@
+//
+// Mixins
+// --------------------------------------------------
+
+
+//buttons
+@mixin cta($color) {
+  height: 48px;
+  font-family: $brand-font;
+  text-transform: uppercase;
+  background-color: $color;
+  color: white;
+  line-height: 22px;
+  letter-spacing: $letter-spacing;
+  @include border-radius(30px);
+  font-weight: 400 !important;
+  padding: 10px 28px;
+  svg  {
+    @include icon;
+  }
+  &:hover {
+    color: white;
+    svg path {
+      fill: white;
+    }
+  }
+  &:focus {
+    color: white;
+    background-color: $color;
+  }
+  @include media-queries-min-max-width($screen-tablet, $screen-laptop) {
+    padding: 10px 20px;
+  }
+}
+@mixin cta-inverse($color) {
+  height: 48px;
+  font-family: $brand-font;
+  font-size: $font-size-small;
+  letter-spacing: $letter-spacing;
+  line-height: 22px;
+  text-align: justify;
+  font-weight: $font-weight-normal !important;
+  text-transform: uppercase;
+  background-color: $background-color;
+  border: 1px solid $color;
+  color: $color;
+  padding: 10px 28px;
+  @include border-radius(30px);
+  svg  {
+    @include icon;
+  }
+  &:hover {
+    color: white;
+    background-color: $color;
+    svg path {
+      fill: white;
+    }
+  }
+  @include media-queries-min-max-width($screen-tablet,$screen-laptop) {
+    padding: 10px 20px;
+  }
+}
+
+@mixin form-inverse($color) {
+  height: 32px;
+  font-family: $brand-font;
+  font-size: 10px;
+  font-weight: $font-weight-normal !important;
+  letter-spacing: $letter-spacing;
+  line-height: 16px;
+  text-align: justify;
+  text-transform: uppercase;
+  background-color: $background-color;
+  border: 1px solid $color;
+  color: $color;
+  padding: 7px 20px;
+  @include border-radius(30px);
+  svg  {
+    @include icon;
+    height: 18px;
+    width: 18px;
+    margin-top: -2px;
+  }
+  &:hover {
+    color: white;
+    background-color: $color;
+    svg path {
+      fill: white;
+    }
+  }
+  //@include media-queries-min-max-width($screen-tablet,$screen-laptop) {
+  //  padding: 10px 20px;
+  //}
+}
+
+//filters
+@mixin home-filter-option {
+  @include border-radius(20px);
+  background-color: $light-grey;
+  padding: 5px 25px;
+  margin-right: 12px;
+  margin-bottom: 12px;
+  color: $brand-secondary;
+  font-family: $brand-font;
+  font-size: $font-size-p - 1px;
+  font-weight: $font-weight-bold;
+  letter-spacing: $letter-spacing;
+  line-height: 23px;
+  border: none;
+  &:hover {
+    color: white;
+    background-color: $brand-secondary;
+  }
+}
+@mixin home-filter-option-selected {
+  @include border-radius(20px);
+  background-color: $brand-secondary;
+  padding: 5px 25px;
+  margin-right: 12px;
+  margin-bottom: 12px;
+  color: white;
+  font-family: $brand-font;
+  font-size: $font-size-p - 1px;
+  font-weight: $font-weight-bold;
+  letter-spacing: $letter-spacing;
+  line-height: 23px;
+  border: none;
+}
+
+//icons
+@mixin icon {
+  height: 22px;
+  width: 22px;
+  float: left;
+  margin-right: 7px;
+}
+
+//profile-card
+@mixin card-info-rectangle {
+  @include border-radius(20px);
+  background-color: rgba(16,17,65,0.05);
+}
+@mixin card-info-text {
+  color: $gray-long-text;
+  font-family: $complementary-font;
+  font-size: $font-size-p;
+  font-weight: $font-weight-bold;
+  letter-spacing: $letter-spacing;
+  line-height: 22px;
+  text-align: center;
+}
+
+@mixin card-subscribe {
+  color: white;
+  font-family: $complementary-font;
+  font-weight: $font-weight-bold;
+  letter-spacing: $letter-spacing;
+  font-size: 18px;
+  line-height: 28px;
+  text-align: center;
+  text-transform: uppercase;
+  height: 63px;
+  background-color: $brand-secondary;
+  border-radius: 0 0 20px 20px;
+  margin-top: 56px;
+}
+
+//texts
+@mixin h1 {
+  font-size: $font-size-h1;
+  font-family: $brand-font;
+  color: $brand-secondary;
+  height: 43px;
+  font-weight: $font-weight-bold;
+  letter-spacing: $letter-spacing;
+  line-height: 37px;
+}
+
+@mixin subtitle {
+  height: 24px;
+  color: $brand-primary;
+  font-family: $brand-font;
+  font-size: $font-size-small;
+  font-weight: $font-weight-normal;
+  letter-spacing: $letter-spacing;
+  line-height: $line-height-normal;
+  text-align: justify;
+}
+
+//media queries
+@mixin media-queries-max-width($screen-size) {
+  @media screen and (max-width: $screen-size) {
+    @content;
+  }
+}
+@mixin media-queries-min-width($screen-size) {
+  @media screen and (min-width: $screen-size) {
+    @content;
+  }
+}
+
+@mixin media-queries-min-max-width($screen-size-min,$screen-size-max) {
+  @media screen and (min-width: $screen-size-min) and (max-width: $screen-size-max) {
+    @content;
+  }
+}
+
+
+//various
+@mixin border-radius($radius) {
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+}
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+

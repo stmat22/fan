@@ -1,0 +1,234 @@
+<navbar></navbar>
+<section id="profile">
+    <!--escort-banner-->
+    <div class="container-fluid banner">
+        <img class="img-responsive" src="{{perfomer.welcomePhoto || 'assets/images/background-header.jpg' | cdn}}"
+            alt="">
+    </div>
+    <!--escort-content-->
+    <div class="container">
+        <div class="row">
+            <!--escort-details-container-->
+            <div class="col-xs-12 col-sm-3 col-lg-2 escort-details-container">
+                <!--escort-avatar-->
+                <div class="escort-avatar flex-center">
+                    <!--photo-->
+                    <div ng-if="perfomer.welcomeOption === 'photo' || !perfomer.welcomeOption || perfomer.welcomeOption === 'video' && !perfomer.welcomeVideo"
+                        class="img-model-detail">
+                        <img fallback-src ng-src="{{perfomer.imageThumbPath | checkImage}}" alt="{{perfomer.name}}" />
+                    </div>
+                    <!--video-->
+                    <div ng-if="perfomer.welcomeVideo && perfomer.welcomeOption === 'video'" class="img-model-detail">
+                        <video width="100%" controlsList="nofullscreen nodownload" autoplay ng-if="autoPlay"
+                            id="welcome-Video" controls>
+                            <source ng-src="{{trustSrc(perfomer.welcomeVideo)}}" type="video/mp4">
+                            Your browser does not support video player!
+                        </video>
+                        <video width="100%" controlsList="nofullscreen nodownload" ng-if="!autoPlay" id="welcome-video"
+                            controls>
+                            <source ng-src="{{trustSrc(perfomer.welcomeVideo)}}" type="video/mp4">
+                            Your browser does not support video player!
+                        </video>
+                    </div>
+                </div>
+                <!--escort-info | name | price | photos | video | description-->
+                <div>
+                    <h1 class="escort-details-name">{{perfomer.name}}</h1>
+                </div>
+                <div class="escort-details-subscription-price">
+                    <p>
+                        <a href="#"
+                            ui-sref="payment({performerId: perfomer._id, type: 'performer_subscription', package: 'monthly'})">&euro;
+                            {{perfomer.subscriptionMonthlyPrice}} / month</a>
+                    </p>
+                </div>
+                <div class="escort-details-stats-photos col-xs-5">
+                    <p><i class="fa fa fa-camera" aria-hidden="true"></i>{{perfomer.totalPhoto}}</p>
+                </div>
+                <div class="escort-details-stats-videos col-xs-6 col-xs-offset-1">
+                    <p><i class="fa fa-video-camera" aria-hidden="true"></i>{{perfomer.totalVideo}}</p>
+                </div>
+                <div class="escort-details-description col-xs-12">
+                    <p>{{perfomer.description}}</p>
+                </div>
+                <button class="btn btn-link escort-details-read-more">Read more</button>
+            </div>
+            <!--escort-post-container-->
+            <div class="col-xs-12 col-sm-8 col-sm-offset-1 col-lg-9 col-lg-offset-1">
+                <!--if NOT subscribed-->
+                <div ng-if="!isHided" class="escort-post-container">
+                    <div class="escort-post-subscribe">
+                        <img class="escort-post-subscribe-icon" src="/assets/images/key.png" alt="">
+                        <h2 class="escort-post-subscribe-name">Subscribe to see {{perfomer.name}} posts.</h2>
+                        <div class="escort-post-subscribe-cta text-center">
+                            <button
+                                ui-sref="payment({performerId: perfomer._id, type: 'performer_subscription', package: 'monthly'})"
+                                class="btn cta-primary-inverse">subscribe now</button>
+                        </div>
+                    </div>
+                </div>
+                <!--if subscribed-->
+                <div ng-if="isHided" class=" escort-post-container">
+                    <!--...but no posts-->
+                    <div class="escort-post-subscribe" ng-show="!medias.length">
+                        <h2 class="escort-post-subscribe-name">{{perfomer.name}} hasn't uploaded any content yet.</h2>
+                    </div>
+                    <!--form to create post-->
+                    <div class="escort-form-create-post">
+                        <form>
+                            <div class="form-group">
+                                <textarea class="form-control" name="escort-form-description" cols="1" rows="1"
+                                    id="escort-form-description" placeholder="What is in your mind?"></textarea>
+                            </div>
+                            <div class="cta-escort-form-button">
+                                <div class="image-upload">
+                                    <label class="form-secondary-inverse" ng-click="ShowPhotoUpload()">
+                                        <svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <title>01_Icons/camera</title>
+                                            <desc>Created with Sketch.</desc>
+                                            <g id="01_Icons/camera" stroke="none" stroke-width="1" fill="none"
+                                                fill-rule="evenodd">
+                                                <path
+                                                    d="M10,7 C8.3412527,7 7,8.34449244 7,10 C7,11.6555076 8.3412527,13 10,13 C11.6555076,13 13,11.6555076 13,10 C13,8.34449244 11.6555076,7 10,7 L10,7 Z M10.00168,6 C12.2125157,6 14,7.79345088 14,10 C14,12.2099076 12.2125157,14 10.00168,14 C7.79084418,14 6,12.2099076 6,10 C6,7.79345088 7.79084418,6 10.00168,6 L10.00168,6 Z M6.29931973,2 C5.97959184,2 5.68027211,2.16536735 5.52040816,2.43656981 L4.5,4.62603355 L0.901360544,4.62603355 C0.404761905,4.62603355 0,5.0163005 0,5.49917316 L0,15.123553 C0,15.609733 0.404761905,16 0.901360544,16 L17.0986395,16 C17.5952381,16 18,15.609733 18,15.123553 L18,5.49917316 C18,5.0163005 17.5952381,4.62603355 17.0986395,4.62603355 L13.5,4.62603355 L12.4761905,2.43656981 C12.3197279,2.16536735 12.0204082,2 11.7006803,2 L6.29931973,2 Z"
+                                                    id="Fill-1" fill="#101141"></path>
+                                            </g>
+                                        </svg>
+                                        POST PHOTO
+                                    </label>
+                                    <input id="escort-form-image-upload" type="file" accept="image/*" />
+                                </div>
+                                <div class="video-upload">
+                                    <label class="form-secondary-inverse" for="escort-form-video-upload">
+                                        <svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <title>01_Icons/camera_2</title>
+                                            <desc>Created with Sketch.</desc>
+                                            <g id="01_Icons/camera_2" stroke="none" stroke-width="1" fill="none"
+                                                fill-rule="evenodd">
+                                                <path
+                                                    d="M10.861549,3 C12.0425086,3 13,4.05095355 13,5.34718826 L13,12.6528117 C13,13.9490465 12.0425086,15 10.861549,15 L2.13845099,15 C0.957491432,15 0,13.9490465 0,12.6528117 L0,5.34718826 C0,4.05095355 0.957491432,3 2.13845099,3 L10.861549,3 Z M16.6899152,4.16986425 C17.4099906,3.77084545 17.998115,4.0988061 18,4.90230972 L18,4.90230972 L18,13.1013262 C18,13.9011858 17.4099906,14.2289643 16.6919887,13.8301277 L16.6919887,13.8301277 L14,12.3342627 L14,5.66572926 Z"
+                                                    id="Combined-Shape" fill="#101141"></path>
+                                            </g>
+                                        </svg>
+                                        POST VIDEO
+                                    </label>
+                                    <input id="escort-form-video-upload" type="file" accept="video/*" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="escort-post-subscribe" ng-if="photoUploadform">
+                        <div class="upload-form-header">
+                            <div class="upload-form-logo">
+                                <svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <title>01_Icons/camera</title>
+                                    <desc>Created with Sketch.</desc>
+                                    <g id="01_Icons/camera" stroke="none" stroke-width="1" fill="none"
+                                        fill-rule="evenodd">
+                                        <path
+                                            d="M10,7 C8.3412527,7 7,8.34449244 7,10 C7,11.6555076 8.3412527,13 10,13 C11.6555076,13 13,11.6555076 13,10 C13,8.34449244 11.6555076,7 10,7 L10,7 Z M10.00168,6 C12.2125157,6 14,7.79345088 14,10 C14,12.2099076 12.2125157,14 10.00168,14 C7.79084418,14 6,12.2099076 6,10 C6,7.79345088 7.79084418,6 10.00168,6 L10.00168,6 Z M6.29931973,2 C5.97959184,2 5.68027211,2.16536735 5.52040816,2.43656981 L4.5,4.62603355 L0.901360544,4.62603355 C0.404761905,4.62603355 0,5.0163005 0,5.49917316 L0,15.123553 C0,15.609733 0.404761905,16 0.901360544,16 L17.0986395,16 C17.5952381,16 18,15.609733 18,15.123553 L18,5.49917316 C18,5.0163005 17.5952381,4.62603355 17.0986395,4.62603355 L13.5,4.62603355 L12.4761905,2.43656981 C12.3197279,2.16536735 12.0204082,2 11.7006803,2 L6.29931973,2 Z"
+                                            id="Fill-1" fill="white"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                            <p class="upload-form-header-text ">Upload Photo</p>
+                            <span class="upload-form-close" ng-click="HidePhotoUpload()"><i
+                                    class="glyphicon glyphicon-remove"></i></span>
+                        </div>
+                        <div class="upload-form-main">
+                            <form action="#" class="upload-form">
+                                <div class="form-group">
+                                    <label for="picture-title"><span class="sub-title">PICTURE TITLE</span> <i
+                                            class="fa fa-info-circle"></i></label>
+                                    <input type="text" class="form-control input" id="picture-title" ng-change="post(picture)" ng-model="picture"
+                                        placeholder="Please input photo title to upload">
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-xs-4 col-sm-4 col-lg-4">
+                                        <label for="avatar"><span class="sub-title">UPLOAD PICTURE</span> <i
+                                                class="fa fa-info-circle"></i></label>
+                                        <div class="avatar-upload" id="avatar">
+                                            <div id="imagePreview" style="background-image: url({{imageUrl}});">
+                                                <div class="avatar-edit">
+                                                    <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" ng-upload-change="upload($event)" />
+                                                    <label for="imageUpload" style="font-size: 35px;"><i
+                                                            class="fa fa-plus-circle"></i></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-8 col-sm-8 col-lg-8">
+                                        <label for="desc"><span class="sub-title">PICTURE DESCRIPTION</span> <i
+                                                class="fa fa-info-circle"></i></label>
+                                        <textarea name="" id="desc" cols="30" rows="4"
+                                            class="form-control input"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="hash-tag"><span class="sub-title">HASHTAGS</span> <i
+                                            class="fa fa-info-circle"></i></label>
+                                    <input type="text" class="form-control input" id="hash-tag" placeholder="Hash Tag">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="upload-form-footer">
+                            <label class="form-secondary-inverse post-button" ng-click="post()">
+                                <span>POST <i class="fa fa-chevron-circle-right"></i></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div ng-repeat="media in medias | limitTo:10">
+                        <!--post items-->
+                        <div class="escort-post-item ">
+                            <div class="escort-post-header-info">
+                                <div class="escort-mini-avatar">
+                                    <div ng-if="perfomer.welcomeOption === 'photo' || !perfomer.welcomeOption || perfomer.welcomeOption === 'video' && !perfomer.welcomeVideo"
+                                        class="img-model-detail">
+                                        <img fallback-src ng-src="{{perfomer.imageThumbPath | checkImage}}"
+                                            alt="{{perfomer.name}}" />
+                                    </div>
+                                </div>
+                                <div class="escort-name-date">
+                                    <h2 class="escort-post-name">{{media.name}}</h2>
+                                    <div class="escort-post-date">
+                                        <p>{{media.createdAt | fromNow}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--photo-->
+                            <div ng-if="!media.duration" class="escort-post-photo">
+                                <img class="img-responsive" ng-src="{{media.imageFullPath | checkImage}}"
+                                    alt="{{media.name}}">
+                            </div>
+                            <!--video-->
+                            <div ng-if="media.duration" class="escort-post-video">
+                                <video controls controlsList="nodownload" disablePictureInPicture>
+                                    <source ng-src="{{media.clipUrl}}" type="video/mp4">
+                                    Your browser does not support the video.
+                                </video>
+                            </div>
+                            <div class="escort-post-description" ng-if="media.description">
+                                <p>{{media.description}}</p>
+                            </div>
+                            <!--placeholder for empty content-->
+                            <div class="escort-post-placeholder" ng-if="!media.description"></div>
+                            <div class="escort-post-tags" ng-if="media.tags">
+                                <p>{{media.tags}}</p>
+                            </div>
+                            <!--placeholder for empty content-->
+                            <div class="escort-post-placeholder" ng-if="!media.tags && !media.description"></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--escort-content row-->
+    </div>
+    <!--escort-content container -->
+</section>
+<footer></footer>

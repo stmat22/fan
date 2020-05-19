@@ -1,0 +1,53 @@
+<section id="feed">
+    <div class="row escort-post-container">
+        <div class="col-xs-12 placeholder" ng-show="!medias.length">
+            <div class="placeholder-text">
+                <span>You have not subscribed to any escorts yet.</span>.</br> What are you waiting for?
+            </div>
+        </div>
+        <div class="col-xs-12 escort-feed-container" ng-repeat="media in medias | limitTo:10">
+            <div class="escort-post-item ">
+                <div class="escort-post-header-info">
+                    <div class="escort-mini-avatar">
+                        <div ng-if="perfomer.welcomeOption === 'photo' || !perfomer.welcomeOption || perfomer.welcomeOption === 'video' && !perfomer.welcomeVideo"
+                        class="img-model-detail">
+                        <a href="/{{media.performerUsername}}">
+                        <img fallback-src ng-src="{{media.performerIcon | checkImage}}" alt="{{media.performerUsername}}"/>
+                        </a>
+                        </div>
+                    </div>
+                    <div class="escort-name-date">
+                        <h2 class="escort-post-name">{{media.name}}</h2>
+                        <div class="escort-post-date">
+                            <p>{{media.createdAt | fromNow}}</p>
+                        </div>
+                    </div>
+                </div>
+                <!--photo-->
+                <div ng-if="!media.duration" class="escort-post-photo">
+                    <img class="img-responsive" ng-src="{{media.imageFullPath | checkImage}}"
+                         alt="{{media.name}}">
+                </div>
+                <!--video-->
+                <div ng-if="media.duration" class="escort-post-video">
+                    <video controls controlsList="nodownload" disablePictureInPicture>
+                        <source ng-src="{{media.clipUrl}}" type="video/mp4">
+                        Your browser does not support the video.
+                    </video>
+                </div>
+                <div class="escort-post-description" ng-if="media.description">
+                    <p>{{media.description}}</p>
+                </div>
+                <!--placeholder for empty content-->
+                <div class="escort-post-placeholder" ng-if="!media.description"></div>
+                <div class="escort-post-tags" ng-if="media.tags">
+                    <p>{{media.tags}}</p>
+                </div>
+                <!--placeholder for empty content-->
+                <div class="escort-post-placeholder" ng-if="!media.tags && !media.description"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

@@ -1,0 +1,61 @@
+//set the width of the entire site to 1205px
+@media (min-width: 1200px) {
+  .container {
+    width: 1205px;
+  }
+}
+
+//fixes issue on tablet to desktop on the paddings
+@include media-queries-min-max-width($screen-tablet, $screen-desktop) {
+  .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+.flex-center {
+  @include flex-center;
+}
+
+a:hover {
+  color: $brand-primary !important;
+}
+
+//radio input button
+//input[type=radio] {
+//  width: 23px;
+//  height: 23px;
+//  &:checked {
+//    content:url(/assets/images/icons/oval-radio.png);
+//  }
+//}
+
+//checkbox button
+//input[type=checkbox]:before {
+//  content:"";
+//  display:inline-block;
+//  width: 23px;
+//  height: 23px;
+//  background: white;
+//  border-radius: 10%;
+//}
+//
+//input[type=checkbox]:checked:before {
+//  background-image: url(/assets/images/icons/oval-radio.png);
+//  background-repeat: no-repeat;
+//  width: 23px;
+//  height: 23px;
+//}
+
+input[type=checkbox],input[type=radio] {
+  width: 23px;
+  height: 23px;
+}
+
+// little hack for firefox to reset the style applied to chrome due to an issue
+@-moz-document url-prefix() {
+  input[type=radio],input[type=checkbox] {
+    width: 17px;
+    height: 17px;
+  }
+}

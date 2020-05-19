@@ -1,0 +1,183 @@
+<div class="header header-das" ng-controller="NavbarController">
+    <!-- navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="logo"><a href="/"> <img ng-src="{{setting.logoFullPath}}" tittle="Logo" fallback-src></a> </div>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse menu-login">
+               <!--desktop-->
+                <ul class="nav navbar-nav hidden-xs">
+                    <li ng-if="!isLoggedIn() || currentUser.isPerformer" class="btn nav-secondary-inverse" ui-sref-active="active" ui-sref="escorts">
+                        <svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <title>4CCE6F2B-ADEC-4556-9034-552B397033D5</title>
+                            <desc>Created with sketchtool.</desc>
+                            <g id="ESCORT_FANS_Landing_Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="01_Landing_1920" transform="translate(-1132.000000, -47.000000)" fill="#101141">
+                                    <g id="05_GLOBAL/Header">
+                                        <g id="Elements/header_buttons">
+                                            <g transform="translate(1102.000000, 34.000000)">
+                                                <g id="BTN/2ND_Icon_text-Copy-2">
+                                                    <g id="elements/icon_text_distance" transform="translate(30.000000, 13.000000)">
+                                                        <g id="Icons/user">
+                                                            <path d="M19.8284576,16.0478326 C19.8284576,16.3109118 19.5982765,16.5411061 19.3352124,16.5411061 L2.66352416,16.5411061 C2.40046004,16.5411061 2.17027894,16.3109118 2.17027894,16.0478326 L2.17027894,2.46636771 C2.17027894,2.20328849 2.40046004,1.97309417 2.66352416,1.97309417 L19.3352124,1.97309417 C19.5982765,1.97309417 19.8284576,2.20328849 19.8284576,2.46636771 L19.8284576,16.0478326 Z M20.1904996,0 L1.8414488,0 C0.822075357,0 0,0.822122571 0,1.84155456 L0,20.1584454 C0,21.1778774 0.822075357,22 1.8414488,22 L20.1572877,22 C21.17699,22 21.9990654,21.1778774 21.9990654,20.1584454 L21.9990654,1.84155456 C22.0316196,0.822122571 21.2095442,0 20.1904996,0 L20.1904996,0 Z" id="Fill-1"></path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                        Escorts</li>
+                    <li ng-if="isLoggedIn() && !currentUser.isPerformer" class="btn nav-primary-inverse" ui-sref-active="active" ui-sref="escorts">
+                        <svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <title>4CCE6F2B-ADEC-4556-9034-552B397033D5</title>
+                            <desc>Created with sketchtool.</desc>
+                            <g id="ESCORT_FANS_Landing_Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="01_Landing_1920" transform="translate(-1132.000000, -47.000000)" fill="#bb2171">
+                                    <g id="05_GLOBAL/Header">
+                                        <g id="Elements/header_buttons">
+                                            <g transform="translate(1102.000000, 34.000000)">
+                                                <g id="BTN/2ND_Icon_text-Copy-2">
+                                                    <g id="elements/icon_text_distance" transform="translate(30.000000, 13.000000)">
+                                                        <g id="Icons/user">
+                                                            <path d="M19.8284576,16.0478326 C19.8284576,16.3109118 19.5982765,16.5411061 19.3352124,16.5411061 L2.66352416,16.5411061 C2.40046004,16.5411061 2.17027894,16.3109118 2.17027894,16.0478326 L2.17027894,2.46636771 C2.17027894,2.20328849 2.40046004,1.97309417 2.66352416,1.97309417 L19.3352124,1.97309417 C19.5982765,1.97309417 19.8284576,2.20328849 19.8284576,2.46636771 L19.8284576,16.0478326 Z M20.1904996,0 L1.8414488,0 C0.822075357,0 0,0.822122571 0,1.84155456 L0,20.1584454 C0,21.1778774 0.822075357,22 1.8414488,22 L20.1572877,22 C21.17699,22 21.9990654,21.1778774 21.9990654,20.1584454 L21.9990654,1.84155456 C22.0316196,0.822122571 21.2095442,0 20.1904996,0 L20.1904996,0 Z" id="Fill-1"></path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                        Escorts</li>
+                    <!--NOT logged in-->
+                        <li ng-if="!isLoggedIn()" class="btn nav-secondary-inverse" ui-sref-active="active" ui-sref="login">
+                            <svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <title>D815EF48-FE0B-453A-BAE3-19D25D1AD664</title>
+                                <desc>Created with sketchtool.</desc>
+                                <g id="ESCORT_FANS_Landing_Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="01_Landing_1920" transform="translate(-1296.000000, -47.000000)" fill="#101141">
+                                        <g id="05_GLOBAL/Header">
+                                            <g id="Elements/header_buttons">
+                                                <g transform="translate(1102.000000, 34.000000)">
+                                                    <g id="BTN/2ND_Icon_text" transform="translate(164.000000, 0.000000)">
+                                                        <g id="elements/icon_text_distance" transform="translate(30.000000, 13.000000)">
+                                                            <g id="Icons/user">
+                                                                <path d="M18.7,-0.00011 C20.57,-0.00011 22,1.42989 22,3.29989 L22,3.29989 L22,18.69989 C22,20.56989 20.57,21.99989 18.7,21.99989 L18.7,21.99989 L4.4,21.99989 C2.53,21.99989 1.1,20.56989 1.1,18.69989 L1.1,18.69989 L1.1,14.29989 L3.3,14.29989 L3.3,18.69989 C3.3,19.35989 3.74,19.79989 4.4,19.79989 L4.4,19.79989 L18.7,19.79989 C19.36,19.79989 19.8,19.35989 19.8,18.69989 L19.8,18.69989 L19.8,3.29989 C19.8,2.63989 19.36,2.19989 18.7,2.19989 L18.7,2.19989 L4.4,2.19989 C3.74,2.19989 3.3,2.63989 3.3,3.29989 L3.3,3.29989 L3.3,7.69989 L1.1,7.69989 L1.1,3.29989 C1.1,1.42989 2.53,-0.00011 4.4,-0.00011 L4.4,-0.00011 Z M9.18885,6.32093 C9.64095,5.86883 10.37575,5.87213 10.82235,6.32863 L10.82235,6.32863 L14.18835,9.76393 C14.86155,10.45033 14.86155,11.54923 14.18835,12.23673 L14.18835,12.23673 L10.82235,15.67093 C10.37575,16.12743 9.64095,16.13073 9.18885,15.67863 L9.18885,15.67863 L9.09835015,15.5769105 C8.73687908,15.1191229 8.77430714,14.45213 9.20535,14.03743 L9.20535,14.03743 L11.22055,12.10033 L1.09945,12.10033 C0.49225,12.10033 -0.00055,11.60753 -0.00055,11.00033 C-0.00055,10.39203 0.49225,9.90033 1.09945,9.90033 L1.09945,9.90033 L11.22055,9.90033 L9.20535,7.96213 C8.74115,7.51663 8.73345,6.77633 9.18885,6.32093 Z" id="Combined-Shape"></path>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                            Login</li>
+                        <li ng-if="!isLoggedIn()" class="btn nav-primary-inverse" ui-sref-active="active" ui-sref="signup">
+                            <svg width="21px" height="22px" viewBox="0 0 21 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <title>B73BDCAD-9073-43B3-AD3C-5B46649B00CB</title>
+                                <desc>Created with sketchtool.</desc>
+                                <g id="ESCORT_FANS_Landing_Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="01_Landing_1920" transform="translate(-1439.000000, -47.000000)" fill="#bb2171">
+                                        <g id="05_GLOBAL/Header">
+                                            <g id="Elements/header_buttons">
+                                                <g transform="translate(1102.000000, 34.000000)">
+                                                    <g id="BTN/2ND_Icon_text-Copy" transform="translate(307.000000, 0.000000)">
+                                                        <g id="elements/icon_text_distance" transform="translate(30.000000, 13.000000)">
+                                                            <g id="Icons/user">
+                                                                <path d="M10.3888889,13.4444444 C16.1265568,13.4444444 20.7777778,15.3595887 20.7777778,17.7222222 L20.7772089,17.9893667 C20.7627962,20.2275479 20.383263,22 10.3888889,22 C0,22 0,20.0851046 0,17.7222222 C0,15.3593398 4.65122099,13.4444444 10.3888889,13.4444444 Z M10.3890096,0 C13.4265049,0 15.8888889,2.40930724 15.8888889,5.38156542 C15.8888889,8.35358746 13.4265049,12.2222222 10.3890096,12.2222222 C7.35151422,12.2222222 4.88888889,8.35358746 4.88888889,5.38156542 C4.88888889,2.40930724 7.35127288,0 10.3890096,0 Z" id="Combined-Shape"></path>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                            Register</li>
+                    <!--YES logged in-->
+                        <!--fans-->
+                        <li ng-if="isLoggedIn() && !currentUser.isPerformer" class="btn nav-secondary-inverse nav-icon-feed  " ui-sref-active="active" ui-sref="feed">
+                            <svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <title>01_Icons/Feed</title>
+                                <desc>Created with Sketch.</desc>
+                                <g id="01_Icons/Feed" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <path d="M6,15 C6,13.344 4.656,12 3,12 C1.344,12 0,13.344 0,15 C0,16.656 1.344,18 3,18 C4.656,18 6,16.656 6,15 M8.72727273,18 L12,18 C12,14.8461818 10.6363636,11.8363636 8.41090909,9.6 C6.17454545,7.37454545 3.15272727,6 0,6 L0,9.27272727 C2.4,9.27272727 4.76727273,9.85090909 6.46909091,11.5418182 C8.16,13.2436364 8.72727273,15.6 8.72727273,18 M14.625,18 L18,18 C18,13.5 16.45875,9 12.99375,5.533875 C9.52875,2.07 4.96125,1.62630326e-19 0,1.62630326e-19 L0,3.375 C4.095,3.375 7.92,4.78125 10.7775,7.63875 C13.635,10.49625 14.72625,14.0175 14.625,18" id="Fill-1" fill="#101141"></path>
+                                </g>
+                            </svg>
+                           my feed
+                        </li>
+                        <!--escorts-->
+                        <li ng-if="isLoggedIn() && currentUser.isPerformer" class="btn nav-primary-inverse" ui-sref-active="active" ui-sref="modelView({id:getCurrentUser().username})">
+                            <svg width="21px" height="22px" viewBox="0 0 21 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <title>B73BDCAD-9073-43B3-AD3C-5B46649B00CB</title>
+                                <desc>Created with sketchtool.</desc>
+                                <g id="ESCORT_FANS_Landing_Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="01_Landing_1920" transform="translate(-1439.000000, -47.000000)" fill="#bb2171">
+                                        <g id="05_GLOBAL/Header">
+                                            <g id="Elements/header_buttons">
+                                                <g transform="translate(1102.000000, 34.000000)">
+                                                    <g id="BTN/2ND_Icon_text-Copy" transform="translate(307.000000, 0.000000)">
+                                                        <g id="elements/icon_text_distance" transform="translate(30.000000, 13.000000)">
+                                                            <g id="Icons/user">
+                                                                <path d="M10.3888889,13.4444444 C16.1265568,13.4444444 20.7777778,15.3595887 20.7777778,17.7222222 L20.7772089,17.9893667 C20.7627962,20.2275479 20.383263,22 10.3888889,22 C0,22 0,20.0851046 0,17.7222222 C0,15.3593398 4.65122099,13.4444444 10.3888889,13.4444444 Z M10.3890096,0 C13.4265049,0 15.8888889,2.40930724 15.8888889,5.38156542 C15.8888889,8.35358746 13.4265049,12.2222222 10.3890096,12.2222222 C7.35151422,12.2222222 4.88888889,8.35358746 4.88888889,5.38156542 C4.88888889,2.40930724 7.35127288,0 10.3890096,0 Z" id="Combined-Shape"></path>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                            my profile</li>
+                        <!--common for both users-->
+                        <li ng-if="isLoggedIn()" class="btn nav-secondary-inverse hidden-sm" ui-sref-active="active" ui-sref="profile">
+                            <svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <title>01_Icons/Settings</title>
+                                <desc>Created with Sketch.</desc>
+                                <g id="01_Icons/Settings" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <path d="M9,5.61097257 C10.8628429,5.61097257 12.3665835,7.11471322 12.3665835,8.97755611 C12.3665835,10.840399 10.8628429,12.3441397 9,12.3441397 C7.13715711,12.3441397 5.63341646,10.840399 5.63341646,8.97755611 C5.63341646,7.11471322 7.13715711,5.61097257 9,5.61097257 L9,5.61097257 Z M7.87780549,0 L6.75561097,2.67082294 C6.53117207,2.73815461 6.32917706,2.85037406 6.12718204,2.96259352 L3.4563591,1.840399 L1.840399,3.4563591 L2.96259352,6.12718204 C2.85037406,6.35162095 2.7605985,6.53117207 2.67082294,6.75561097 L0,7.87780549 L0,10.1221945 L2.67082294,11.244389 C2.7605985,11.4688279 2.85037406,11.6483791 2.96259352,11.872818 L1.840399,14.5436409 L3.4563591,16.159601 L6.12718204,15.0374065 C6.32917706,15.127182 6.53117207,15.2416459 6.75561097,15.3314214 L7.87780549,18 L10.1221945,18 L11.244389,15.3314214 C11.446384,15.2416459 11.6708229,15.1496259 11.872818,15.0374065 L14.5436409,16.159601 L16.159601,14.5436409 L15.0374065,11.872818 C15.127182,11.6708229 15.2394015,11.446384 15.3291771,11.244389 L18,10.1221945 L18,7.87780549 L15.3291771,6.75561097 C15.2618454,6.55361596 15.1496259,6.32917706 15.0374065,6.12718204 L16.159601,3.4563591 L14.5436409,1.840399 L11.872818,2.96259352 C11.6708229,2.87281796 11.446384,2.7605985 11.244389,2.67082294 L10.1221945,0 L7.87780549,0 Z" id="Fill-1" fill="#101141"></path>
+                                </g>
+                            </svg>
+                            Settings</li>
+                        <li ng-if="isLoggedIn()" class="btn nav-icon-settings visible-sm" ui-sref-active="active" ui-sref="profile">
+                            <svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <title>01_Icons/Settings</title>
+                                <desc>Created with Sketch.</desc>
+                                <g id="01_Icons/Settings" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <path d="M9,5.61097257 C10.8628429,5.61097257 12.3665835,7.11471322 12.3665835,8.97755611 C12.3665835,10.840399 10.8628429,12.3441397 9,12.3441397 C7.13715711,12.3441397 5.63341646,10.840399 5.63341646,8.97755611 C5.63341646,7.11471322 7.13715711,5.61097257 9,5.61097257 L9,5.61097257 Z M7.87780549,0 L6.75561097,2.67082294 C6.53117207,2.73815461 6.32917706,2.85037406 6.12718204,2.96259352 L3.4563591,1.840399 L1.840399,3.4563591 L2.96259352,6.12718204 C2.85037406,6.35162095 2.7605985,6.53117207 2.67082294,6.75561097 L0,7.87780549 L0,10.1221945 L2.67082294,11.244389 C2.7605985,11.4688279 2.85037406,11.6483791 2.96259352,11.872818 L1.840399,14.5436409 L3.4563591,16.159601 L6.12718204,15.0374065 C6.32917706,15.127182 6.53117207,15.2416459 6.75561097,15.3314214 L7.87780549,18 L10.1221945,18 L11.244389,15.3314214 C11.446384,15.2416459 11.6708229,15.1496259 11.872818,15.0374065 L14.5436409,16.159601 L16.159601,14.5436409 L15.0374065,11.872818 C15.127182,11.6708229 15.2394015,11.446384 15.3291771,11.244389 L18,10.1221945 L18,7.87780549 L15.3291771,6.75561097 C15.2618454,6.55361596 15.1496259,6.32917706 15.0374065,6.12718204 L16.159601,3.4563591 L14.5436409,1.840399 L11.872818,2.96259352 C11.6708229,2.87281796 11.446384,2.7605985 11.244389,2.67082294 L10.1221945,0 L7.87780549,0 Z" id="Fill-1" fill="#ffffff"></path>
+                                </g>
+                            </svg>
+                        </li>
+                </ul>
+                <!--mobile-->
+                <ul class="nav navbar-nav normal-menu visible-xs">
+                    <!--NOT logged in-->
+                        <li class="btn cta-primary" ui-sref-active="active" ui-sref="escorts">Escorts</li>
+                        <li ng-if="!isLoggedIn()" class="btn cta-primary" ui-sref-active="active" ui-sref="login">Login</li>
+                        <li ng-if="!isLoggedIn()" class="btn cta-primary" ui-sref-active="active" ui-sref="signup"></i>Register</li>
+                    <!--YES logged in-->
+                        <!--escorts-->
+                        <li ng-if="isLoggedIn() && currentUser.isPerformer" class="btn cta-primary" ui-sref-active="active" ui-sref="modelView({id:getCurrentUser().username})">my profile</li>
+                        <!--fans-->
+                        <li ng-if="isLoggedIn() && !currentUser.isPerformer" class="btn cta-primary" ui-sref-active="active" ui-sref="feed">my feed</li>
+                        <!--common for both users-->
+                         <li ng-if="isLoggedIn()" class="btn cta-primary" ui-sref-active="active" ui-sref="profile">Settings</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>

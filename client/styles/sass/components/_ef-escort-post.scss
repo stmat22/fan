@@ -1,0 +1,261 @@
+//details
+
+.escort-details-container {
+  margin-bottom: 50px;
+  .escort-avatar {
+    img {
+      width: 183px;
+      height: 183px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid $brand-secondary;
+    }
+    video {
+      width: 183px;
+      border-radius: 10px;
+
+    }
+  }
+  .escort-details-name {
+    font-size: 20px;
+    font-family: $brand-font;
+    color: $gray-long-text;
+    line-height: 31px;
+    font-weight: $font-weight-bold;
+    letter-spacing: $letter-spacing;
+    text-transform: capitalize;
+    @include media-queries-max-width(($screen-tablet - 1)) {
+      text-align: center;
+    }
+  }
+  .escort-details-subscription-price {
+    @include card-info-rectangle;
+    margin-top: 36px;
+    padding-top: 8px;
+    padding-bottom: 1px;
+    color: $gray-long-text;
+    font-family: $complementary-font;
+    font-size: $font-size-p;
+    font-weight: $font-weight-bold;
+    letter-spacing: $letter-spacing;
+    line-height: 22px;
+    text-align: center;
+    a {
+      padding: 5px 25px;
+    }
+
+
+  }
+  .escort-details-stats-photos, .escort-details-stats-videos {
+    @include card-info-rectangle;
+    margin-top: 12px;
+    padding: 7px 0 1px 0;
+    i {
+      font-size: 17px;
+      padding-right: 10px;
+    }
+    p {
+      color: $gray-long-text;
+      font-family: $complementary-font;
+      font-size: $font-size-p;
+      font-weight: $font-weight-bold;
+      letter-spacing: $letter-spacing;
+      line-height: 22px;
+      text-align: center;
+    }
+  }
+
+  .escort-details-description {
+    margin: 0;
+    padding: 0;
+    margin-top: 36px;
+    p {
+      font-size: 12px;
+      color: $gray-long-text;
+      font-family: $complementary-font;
+      letter-spacing: $letter-spacing;
+      line-height: 26px;
+      text-align: justify;
+    }
+  }
+  .escort-details-read-more {
+    color: $brand-secondary;
+    font-family: $brand-font;
+    font-size: 13px;
+    font-weight: $font-weight-normal;
+    letter-spacing: $letter-spacing;
+    line-height: 22px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0;
+  }
+}
+
+//post
+
+.escort-post-container {
+  padding-bottom: 160px;
+  @include media-queries-min-width(($screen-tablet + 1) ) {
+    padding-bottom: 360px;
+  }
+  .escort-post-subscribe {
+    @extend .escort-post-item;
+    height: 416px;
+    text-align: center;
+    .escort-post-subscribe-icon {
+      position: relative;
+      top: 86px;
+    }
+    .escort-post-subscribe-name {
+      color: $brand-secondary;
+      font-family: $brand-font;
+      font-size: 20px;
+      font-weight: $font-weight-normal;
+      letter-spacing: $letter-spacing;
+      line-height: 20px;
+      text-align: center;
+      position: relative;
+      top: 122px;
+      margin: 0;
+    }
+    .escort-post-subscribe-cta {
+      position: relative;
+      top: 158px;
+    }
+
+  }
+  .escort-post-item {
+    @include media-queries-min-width($screen-desktop) {
+      width: 950px;
+    }
+    padding: 0;
+    margin-bottom: 36px;
+    @include border-radius(32px);
+    background-color: white;
+    box-shadow: 0 0 7px 0 rgba(78,78,78,0.23);
+    .escort-mini-avatar {
+      img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 3px solid $brand-secondary;
+        margin: 24px;
+        float: left;
+      }
+    }
+    .escort-post-header-info {
+      display: flex;
+      .escort-name-date {
+        display: flex;
+        flex-direction: column;
+        .escort-post-name {
+          font-size: 22px;
+          color: $gray-long-text;
+          font-family: $brand-font;
+          letter-spacing: $letter-spacing;
+          line-height: 29px;
+          margin-bottom: 0;
+          text-transform: capitalize;
+          padding-top: 27px;
+          padding-right: 10px;
+          margin-top: unset;
+        }
+        .escort-post-date {
+          color: $soft-gray-long-text;
+          font-family: $brand-font;
+          font-size: $font-size-p;
+          font-weight: $font-weight-bold;
+          letter-spacing: $letter-spacing;
+          line-height: $line-height-normal;
+        }
+      }
+
+    }
+
+    .escort-post-photo {
+      background-color: black;
+      img {
+        margin: 0 auto;
+      }
+    }
+    .escort-post-video {
+      background-color: black;
+      video {
+        width: 100%;
+      }
+    }
+    .escort-post-description {
+      color: $gray-long-text;
+      font-family: $complementary-font;
+      font-size: 18px;
+      letter-spacing: $letter-spacing;
+      line-height: $line-height-normal;
+      padding: 25px;
+    }
+    .escort-post-tags {
+      color: $soft-gray-long-text;
+      font-family: $brand-font;
+      font-size: $font-size-p;
+      font-weight: $font-weight-bold;
+      letter-spacing: $letter-spacing;
+      line-height: $line-height-normal;
+      text-transform: lowercase;
+      padding: 0 25px 25px;
+    }
+
+    .escort-post-placeholder {
+      padding: 20px;
+    }
+  }
+}
+
+// Add Post Form
+.escort-form-create-post {
+  padding: 34px 24px 30px 24px;
+  margin-bottom: 36px;
+  @include border-radius(32px);
+  background-color: white;
+  box-shadow: 0 0 7px 0 rgba(78,78,78,0.23);
+  @include media-queries-min-width($screen-desktop) {
+    width: 950px;
+  }
+  .cta-escort-form-button {
+    display: flex;
+    margin-top: 26px;
+    div:first-child {
+      margin-right: 10px;
+    }
+  }
+
+  #escort-form-description {
+    //text
+    color: $gray-long-text;
+    font-family: $complementary-font;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 19px;
+    padding: 10px 20px;
+
+    overflow: hidden;
+    resize: none;
+
+    &::placeholder {
+      color: $gray-long-text;
+      font-weight: 500;
+    }
+    //rectangle
+    box-sizing: border-box;
+    border: 1px solid $brand-secondary;
+    @include border-radius(24px);
+    background-color: white;
+  }
+    //hide the upload real button to only display custom ones
+  .image-upload > input,
+  .video-upload > input
+  {
+    display: none;
+  }
+}
+

@@ -1,0 +1,75 @@
+.footer {
+  background-color: $background-color;
+  min-height: 445px;
+  padding: 0 0 20px 0;
+  box-shadow: 0 0 60px 0 rgba(0,0,0,0.1);
+  .menu-footer {
+    padding-top: 100px;
+    .logo-footer  {
+      img {
+        height: 236px;
+        width: 378px;
+      }
+      @include media-queries-min-max-width($screen-tablet,$screen-desktop) {
+        padding-bottom: 30px;
+      }
+
+    }
+    .directory-column {
+      text-align: left;
+      @include media-queries-max-width($screen-desktop) {
+        text-align: center;
+        //min-height: 200px;
+      }
+      h3 {
+        height: 18px;
+        margin-left: 8px;
+        color: $brand-secondary;
+        font-family: $brand-font;
+        font-size: $font-size-footer;
+        font-weight: $font-weight-bold;
+        letter-spacing: $letter-spacing;
+        line-height: 18px;
+        text-transform: uppercase;
+      }
+      ul li  {
+        padding: 4px 0;
+        a {
+          height: 28px;
+          color: $soft-gray-long-text;
+          font-family: $complementary-font;
+          font-size: $font-size-small;
+          letter-spacing: $letter-spacing;
+          line-height: 28px;
+          text-transform: capitalize;
+        }
+      }
+
+    }
+    .fa-twitter{
+      color: $brand-secondary;
+      border: 2px solid;
+      @include border-radius(50%);
+      font-size: 17px;
+      height: 36px;
+      width: 36px;
+      padding: 8px;
+      margin-left: 8px;
+    }
+  }
+  .text-copyright {
+    font-size: $font-size-copyright;
+    height: 28px;
+    color: $soft-gray-long-text;
+    font-family: $complementary-font;
+    letter-spacing: $letter-spacing;
+    font-weight: 300;
+    line-height: 28px;
+    text-align: right;
+    @include media-queries-max-width($screen-desktop) {
+      text-align: center;
+      padding-top: 40px;
+    }
+  }
+}
+

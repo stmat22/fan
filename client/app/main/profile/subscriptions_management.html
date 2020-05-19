@@ -1,0 +1,45 @@
+<navbar></navbar>
+<div class="content">
+  <div class="container">
+    <div class="profile-box">
+      <profile-menu></profile-menu>
+
+      <div class="profile-right">
+        <div class="title-pro">
+          <span> Subscriptions Management</span>
+        </div>
+        <div class="clear"></div>
+        <div class="table-responsive">
+          <table class="table-main">
+            <tr>
+              <th>Date</th>
+              <th>Description</th>
+              <th>Type</th>
+              <th>Discount</th>
+              <th>Total</th>
+            </tr>
+            <tr ng-repeat="order in orders">
+              <td>{{order.createdAt | date}}</td>
+              <td>{{order.description}}</td>
+              <td>{{order.type}}</td>
+              <td>
+                <span ng-if="order.coupon">
+                  {{order.coupon.discountType=='amount'?'$':''}}
+                  {{order.coupon.discountValue}}
+                  {{order.coupon.discountType=='percentage'?'%':''}}
+                </span>
+              </td>
+              <td class="color-orange">{{order.totalPrice | price}}</td>
+            </tr>
+
+          </table>
+        </div>
+        <div ng-if="totalItems > itemsPerPage" class="paging">
+
+      <uib-pagination  previous-text="Prev" items-per-page="itemsPerPage" num-pages="noOfPages" ng-change="pageChanged(currentPage)" total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-link-numbers="true" rotate="false"></uib-pagination>
+    </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer></footer>

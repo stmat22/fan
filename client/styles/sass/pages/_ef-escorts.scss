@@ -1,0 +1,9 @@
+#escorts {
+  margin-top: 40px;
+  @include media-queries-min-width($screen-tablet) {
+    margin-top: 46px;
+  }
+  #recent-profiles {
+    padding-top: 0;
+  }
+}

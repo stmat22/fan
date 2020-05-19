@@ -1,0 +1,92 @@
+<navbar></navbar>
+<section id="payments">
+    <div class="container">
+        <div class="row payments-title">
+            <div class="col-xs-12">
+                <h1>Subscription Check Out</h1>
+            </div>
+        </div>
+        <div class="row payments-container">
+            <div class="col-lg-3 visible-lg  left">
+                <div class="card item-model">
+                    <div class="card-image">
+                        <a ui-sref="modelView({id:performer.username})">
+                            <img ng-src="{{performer.imageFullPath | checkImage}}" alt="{{performer.name}}">
+                        </a>
+                    </div>
+                    <div class="card-info">
+                        <h3><a ui-sref="modelView({id:performer.username})" {{performer.name}}>{{performer.name}}</a></h3>
+                        <div class="card-price">
+                            <p>
+                                <a href="#">&euro; {{performer.subscriptionMonthlyPrice}} / month</a>
+                            </p>
+                        </div>
+                        <div class="card-videos col-xs-5">
+                            <p><i class="fa fa-video-camera" aria-hidden="true"></i>{{performer.totalVideo}}
+                            </p>
+                        </div>
+                        <div class="card-photos col-xs-6 col-xs-offset-1">
+                            <p><i class="fa fa-camera" aria-hidden="true"></i>{{performer.totalPhoto}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card-subscribe col-xs-12">
+                        <a href="#">subscribe now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9 col-xs-12 right">
+                <div class="payment-item">
+                        <div class="payments-product" ng-if="paymentType !== 'tip_performer'">
+                            <div>
+                                <span>Product</span>
+                            </div>
+                            <div><span>Quantity</span></div>
+                            <div><span>Price</span></div>
+                        </div>
+                        <div class="payments-subscription-details" ng-if="performer && paymentType !== 'tip_performer'">
+                            <div ng-if="subscriptionType === 'monthly'">
+                                <span>Monthly subscription   {{performer.name}}</span>
+                            </div>
+                            <div><span>1</span></div>
+                            <div><span>{{totalPrice | price}}</span></div>
+                        </div>
+                        <div class="payments-total">
+                            <div></div>
+                            <div><span>TOTAL </span></div>
+                            <div><span ng-if="performer">{{totalPrice | price}}</span></div>
+                        </div>
+                        <div class="payments-provider" ng-show="havePaymentGateway">
+                            <div>
+                                <input type="checkbox" checked  name="authorise" value="authorise" ng-model="authorise" id="payment-checkbox"/>
+                                <label for="payment-checkbox">
+                                    <p class="authorise">I authorise this monthly subscription. I can cancel at anytime in my dashboard</p>
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" name="provider" value="skrill" ng-model="provider">
+                                <img src="{{ 'assets/images/skrill.svg' | cdn }}"/>
+                            </div>
+                        </div>
+                        <div class="payments-provider" ng-show="!havePaymentGateway">
+                            <p class="alert alert-danger">Payment is disabled. Please contact administractor for more details! </p>
+                        </div>
+                        <div class="payments-button-checkout">
+                            <button class="cta-secondary-inverse" ng-click="doRedirect()">
+                                <svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+                                    <title>01_Icons/tick</title>
+                                    <desc>Created with Sketch.</desc>
+                                    <g id="01_Icons/tick" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <path d="M13.6312875,6.82498125 L8.3437875,12.1312313 C8.1750375,12.2999812 7.9312875,12.4124813 7.6875375,12.4124813 C7.4437875,12.4124813 7.2000375,12.3187313 7.0312875,12.1312313 L4.3687875,9.46873125 C3.9937875,9.09373125 3.9937875,8.51248125 4.3687875,8.13748125 C4.7437875,7.76248125 5.3250375,7.76248125 5.7000375,8.13748125 L7.6875375,10.1249812 L12.3187875,5.49373125 C12.6937875,5.11873125 13.2750375,5.11873125 13.6500375,5.49373125 C14.0062875,5.86873125 14.0062875,6.44998125 13.6312875,6.82498125 M9.0000375,-1.875e-05 C4.0312875,-1.875e-05 3.75e-05,4.03123125 3.75e-05,8.99998125 C3.75e-05,13.9687312 4.0312875,17.9999812 9.0000375,17.9999812 C13.9687875,17.9999812 18.0000375,13.9687312 18.0000375,8.99998125 C18.0000375,4.03123125 13.9687875,-1.875e-05 9.0000375,-1.875e-05" id="Fill-1" fill="#101141"></path>
+                                    </g>
+                                </svg>
+                                Checkout
+                            </button>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer></footer>
