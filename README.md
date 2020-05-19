@@ -1,4 +1,4 @@
-# xfans project
+# fans project
 
 ## Getting Started
 
